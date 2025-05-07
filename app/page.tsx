@@ -101,9 +101,9 @@ export default function HomePage() {
     <main className="h-screen w-full flex flex-col items-center justify-between py-12 bg-white">
       <div className="flex-grow flex items-center justify-center">
         <Image
-          src="/assets/logo.png"
-          width={300}
-          height={150}
+          src="/images/logo.png"
+          width={150}
+          height={75}
           alt="IUB Logo"
         />
       </div>

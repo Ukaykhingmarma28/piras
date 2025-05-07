@@ -7,11 +7,11 @@ export default function LoginPage() {
     <div className="h-screen w-full bg-white flex flex-col items-center px-8">
       {/* Logo */}
       <Image
-        src="/assets/logo.png"
+        src="/images/logo.png"
         alt="IUB Logo"
-        width={200}
-        height={100}
-        className="mb-10 mt-32"
+        width={90}
+        height={45}
+        className=' mt-40 mb-20'
       />
 
       {/* Form */}
