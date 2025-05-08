@@ -1,8 +1,12 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 
+
+
 export default function LoginPage() {
+  const router = useRouter();
   return (
     <div className="h-screen w-full bg-white flex flex-col items-center px-8">
       {/* Logo */}
@@ -15,7 +19,7 @@ export default function LoginPage() {
       />
 
       {/* Form */}
-      <form className="w-full max-w-sm space-y-4">
+      <form className="w-full max-w-sm space-y-4" onSubmit={(e)=> e.preventDefault()}>
         <input
           type="text"
           placeholder="Student ID"
@@ -29,7 +33,7 @@ export default function LoginPage() {
         />
 
         <button
-          type="submit"
+          onClick={() => router.push('/pages/home')}
           className="w-full bg-indigo-800 hover:bg-indigo-900 text-white py-3 rounded-full font-semibold transition duration-300"
         >
           Log In
