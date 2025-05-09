@@ -8,7 +8,7 @@ import Image from 'next/image';
 export default function LoginPage() {
   const router = useRouter();
   return (
-    <div className="h-screen w-full bg-white flex flex-col items-center px-8">
+    <div className="h-screen w-full top-bar-bg flex flex-col items-center px-8">
       {/* Logo */}
       <Image
         src="/images/logo.png"

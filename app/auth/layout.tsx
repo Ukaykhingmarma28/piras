@@ -1,5 +1,3 @@
-import BottomNavbar from "@/components/BottomNavbar";
-import Topbar from "@/components/Topbar";
 import { Figtree } from "next/font/google";
 import type { ReactNode } from "react";
 
@@ -11,9 +9,7 @@ const figtree = Figtree({
 export default function Layout({ children }: { children: ReactNode }) {
   return (
     <div className={figtree.variable}>
-      <Topbar />
       <main>{children}</main>
-      <BottomNavbar />
     </div>
   );
 }

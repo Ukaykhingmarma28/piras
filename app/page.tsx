@@ -98,7 +98,7 @@ export default function HomePage() {
 
   // Show fallback message for mobile browser
   return (
-    <main className="h-screen w-full flex flex-col items-center justify-between py-12 bg-white">
+    <main className="h-screen w-full flex flex-col items-center justify-between py-12 top-bar-bg">
       <div className="flex-grow flex items-center justify-center">
         <Image
           src="/images/logo.png"

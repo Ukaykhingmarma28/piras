@@ -1,5 +1,13 @@
 @import "tailwindcss";
 
+body{
+    background-color: #FDFAF6;
+}
+
+.top-bar-bg{
+    background-color: #F5F5F5;
+}
+
 
 .bg-yellow-my {
     background-color: rgba(247, 148, 29, 0.15);
