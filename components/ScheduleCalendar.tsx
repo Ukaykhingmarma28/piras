@@ -3,7 +3,7 @@
 import React from 'react';
 import { useCalendarApp, ScheduleXCalendar } from '@/lib/schedule-x/react';
 import { createViewWeek, createViewDay } from '@/lib/schedule-x/calendar';
-import '@schedule-x/theme-shadcn/dist/index.css';
+import "@/lib/schedule-x/theme-shadcn/dist/index.css"
 
 export default function ScheduleXCalendarComponent() {
   const calendarApp = useCalendarApp({
