@@ -1,0 +1,28 @@
+{
+  "name": "@schedule-x/theme-shadcn",
+  "version": "2.30.0",
+  "license": "MIT",
+  "author": {
+    "name": "Tom Österlund",
+    "email": "tom@schedule-x.dev",
+    "url": "https://github.com/tomosterlund"
+  },
+  "scripts": {
+    "build": "sass --no-source-map src/index.scss dist/index.css",
+    "lint:fix": "npx stylelint \"**/*.scss\" --fix --formatter compact"
+  },
+  "exports": {
+    ".": "./dist/index.css",
+    "./dist/index.css": "./dist/index.css"
+  },
+  "files": [
+    "dist"
+  ],
+  "gitHead": "92ba1ffd97ebfa7516b3f381e60c12a892a3079d",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/schedule-x/schedule-x",
+    "directory": "packages/theme-shadcn"
+  },
+  "homepage": "https://schedule-x.dev"
+}
