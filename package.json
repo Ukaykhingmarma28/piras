@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@radix-ui/react-dialog": "^1.1.13",
     "@schedule-x/calendar": "^2.30.0",
     "@schedule-x/react": "^2.30.0",
     "@schedule-x/theme-shadcn": "^2.30.0",
