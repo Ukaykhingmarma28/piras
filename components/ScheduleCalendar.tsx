@@ -46,7 +46,6 @@
 //   );
 // }
 
-
 // 'use client';
 
 // import React, { useState } from 'react';
@@ -96,7 +95,7 @@
 //   return (
 //     <div className="h-screen relative">
 //       <ScheduleXCalendar calendarApp={calendarApp} />
-      
+
 //       {/* Floating Add Button */}
 //       <button
 //         onClick={() => setModalOpen(true)}
@@ -110,24 +109,24 @@
 //         <Dialog.Portal>
 //           <Dialog.Overlay className="fixed inset-0 bg-black/50 z-40" />
 //           <Dialog.Content className="fixed z-50 bg-white rounded-lg shadow-lg w-[350px] max-w-[90%] p-6 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-            
+
 //             {/* Title Input */}
 //             <Dialog.Title className="text-lg font-semibold mb-4">Add title</Dialog.Title>
-//             <input 
-//               type="text" 
-//               placeholder="Add title" 
+//             <input
+//               type="text"
+//               placeholder="Add title"
 //               className="w-full mb-4 px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600"
 //             />
-            
+
 //             {/* Tab Selector */}
 //             <div className="flex mb-4">
-//               <button 
+//               <button
 //                 onClick={() => setActiveTab('Event')}
 //                 className={`flex-1 py-2 rounded-l-md ${activeTab === 'Event' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700'} transition`}
 //               >
 //                 Event
 //               </button>
-//               <button 
+//               <button
 //                 onClick={() => setActiveTab('Task')}
 //                 className={`flex-1 py-2 rounded-r-md ${activeTab === 'Task' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700'} transition`}
 //               >
@@ -151,13 +150,13 @@
 
 //             {/* Modal Actions */}
 //             <div className="flex justify-between">
-//               <button 
+//               <button
 //                 onClick={() => setModalOpen(false)}
 //                 className="px-4 py-2 border rounded-md bg-gray-100 hover:bg-gray-200 transition"
 //               >
 //                 Cancel
 //               </button>
-//               <button 
+//               <button
 //                 className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition"
 //               >
 //                 Save
@@ -251,7 +250,7 @@
 //   }, [events]);
 
 //   // Generate a range of dates for the next 7 days
-//   const daysInView = Array.from({ length: 7 }, (_, i) => 
+//   const daysInView = Array.from({ length: 7 }, (_, i) =>
 //     dayjs().add(i, 'day').format('YYYY-MM-DD')
 //   );
 
@@ -272,8 +271,8 @@
 //               {dayEvents.length > 0 ? (
 //                 <ul>
 //                   {dayEvents.map((event: CalendarEvent) => (
-//                     <li 
-//                       key={event.id} 
+//                     <li
+//                       key={event.id}
 //                       className="bg-blue-100 text-blue-700 rounded-md p-3 mb-2 shadow-sm"
 //                     >
 //                       <h4 className="font-medium">{event.title}</h4>
@@ -293,7 +292,6 @@
 //     </div>
 //   );
 // }
-
 
 // 'use client';
 
@@ -359,9 +357,6 @@
 //     </div>
 //   );
 // }
-
-
-
 
 // 'use client';
 
@@ -440,7 +435,7 @@
 //   const groupedEvents = useMemo(() => {
 //     const startOfMonth = selectedMonth.startOf('month');
 //     const endOfMonth = selectedMonth.endOf('month');
-    
+
 //     return events
 //       .filter(event => dayjs(event.start).isBetween(startOfMonth, endOfMonth, 'day', '[]'))
 //       .reduce((acc, event) => {
@@ -453,7 +448,7 @@
 
 //   // Generate Date Range for the Current Month
 //   const daysInMonth = selectedMonth.daysInMonth();
-//   const daysInView = Array.from({ length: daysInMonth }, (_, i) => 
+//   const daysInView = Array.from({ length: daysInMonth }, (_, i) =>
 //     selectedMonth.startOf('month').add(i, 'day').format('YYYY-MM-DD')
 //   );
 
@@ -498,8 +493,8 @@
 //               {dayEvents.length > 0 ? (
 //                 <ul>
 //                   {dayEvents.map((event: CalendarEvent) => (
-//                     <li 
-//                       key={event.id} 
+//                     <li
+//                       key={event.id}
 //                       className="bg-blue-100 text-blue-700 rounded-md p-4 mb-2 shadow-sm"
 //                     >
 //                       <h4 className="font-medium">{event.title}</h4>
@@ -519,7 +514,6 @@
 //     </div>
 //   );
 // }
-
 
 // 'use client';
 
@@ -602,7 +596,7 @@
 //   const groupedEvents = useMemo(() => {
 //     const startOfMonth = dayjs(selectedMonth).startOf('month');
 //     const endOfMonth = dayjs(selectedMonth).endOf('month');
-    
+
 //     return events
 //       .filter(event => dayjs(event.start).isBetween(startOfMonth, endOfMonth, 'day', '[]'))
 //       .reduce((acc, event) => {
@@ -615,7 +609,7 @@
 
 //   // Generate Date Range for the Current Month
 //   const daysInMonth = dayjs(selectedMonth).daysInMonth();
-//   const daysInView = Array.from({ length: daysInMonth }, (_, i) => 
+//   const daysInView = Array.from({ length: daysInMonth }, (_, i) =>
 //     dayjs(selectedMonth).startOf('month').add(i, 'day').format('YYYY-MM-DD')
 //   );
 
@@ -646,7 +640,7 @@
 //         >
 //           Previous
 //         </button>
-        
+
 //         {/* Date Picker Trigger */}
 //         <div className="relative">
 //           <button
@@ -693,8 +687,8 @@
 //               {dayEvents.length > 0 ? (
 //                 <ul>
 //                   {dayEvents.map((event: CalendarEvent) => (
-//                     <li 
-//                       key={event.id} 
+//                     <li
+//                       key={event.id}
 //                       className="bg-blue-100 text-blue-700 rounded-md p-4 mb-2 shadow-sm"
 //                     >
 //                       <h4 className="font-medium">{event.title}</h4>
@@ -715,20 +709,17 @@
 //   );
 // }
 
+"use client";
 
-
-
-'use client';
-
-import React, { useMemo, useState } from 'react';
-import { useCalendarApp } from '@/lib/schedule-x/react';
-import { createViewMonthAgenda } from '@/lib/schedule-x/calendar';
+import React, { useMemo, useState } from "react";
+import { useCalendarApp } from "@/lib/schedule-x/react";
+import { createViewMonthAgenda } from "@/lib/schedule-x/calendar";
 import "@/lib/schedule-x/theme-shadcn/dist/index.css";
-import dayjs from 'dayjs';
-import isBetween from 'dayjs/plugin/isBetween';
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
-import { AiOutlineCalendar } from 'react-icons/ai';
+import dayjs from "dayjs";
+import isBetween from "dayjs/plugin/isBetween";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import { AiOutlineCalendar } from "react-icons/ai";
 
 // Extend dayjs with the isBetween plugin
 dayjs.extend(isBetween);
@@ -748,47 +739,54 @@ export default function ScheduleXMonthAgenda() {
 
   // Initialize Calendar App
   const calendarApp = useCalendarApp({
-    theme: 'shadcn',
-    selectedDate: dayjs(selectedMonth).startOf('month').toISOString().split('T')[0],
+    theme: "shadcn",
+    selectedDate: dayjs(selectedMonth)
+      .startOf("month")
+      .toISOString()
+      .split("T")[0],
     views: [createViewMonthAgenda()],
-    defaultView: 'monthAgenda',
+    defaultView: "monthAgenda",
     events: [
       {
-        id: '1',
-        title: 'Stand-up Meeting',
-        start: '2025-05-11 09:00',
-        end: '2025-05-11 10:00',
+        id: "1",
+        title: "Stand-up Meeting",
+        start: "2025-05-11 09:00",
+        end: "2025-05-11 10:00",
       },
       {
-        id: '2',
-        title: 'Team Sync',
-        start: '2025-05-11 13:00',
-        end: '2025-05-11 14:00',
+        id: "2",
+        title: "Team Sync",
+        start: "2025-05-11 13:00",
+        end: "2025-05-11 14:00",
       },
       {
-        id: '3',
-        title: 'Product Demo',
-        start: '2025-05-12 11:00',
-        end: '2025-05-12 12:00',
+        id: "3",
+        title: "Product Demo",
+        start: "2025-05-12 11:00",
+        end: "2025-05-12 12:00",
       },
       {
-        id: '4',
-        title: 'Client Call',
-        start: '2025-05-13 15:00',
-        end: '2025-05-13 16:00',
+        id: "4",
+        title: "Client Call",
+        start: "2025-05-13 15:00",
+        end: "2025-05-13 16:00",
       },
       {
-        id: '5',
-        title: 'Sprint Planning',
-        start: '2025-05-14 10:00',
-        end: '2025-05-14 11:30',
+        id: "5",
+        title: "Sprint Planning",
+        start: "2025-05-14 10:00",
+        end: "2025-05-14 11:30",
       },
     ] as CalendarEvent[],
   });
 
   // Extract Events
   const events = useMemo(() => {
-    if (!calendarApp || !calendarApp.events || typeof calendarApp.events.getAll !== 'function') {
+    if (
+      !calendarApp ||
+      !calendarApp.events ||
+      typeof calendarApp.events.getAll !== "function"
+    ) {
       return [] as CalendarEvent[];
     }
 
@@ -797,13 +795,15 @@ export default function ScheduleXMonthAgenda() {
 
   // Group Events by Date within the Selected Month
   const groupedEvents = useMemo(() => {
-    const startOfMonth = dayjs(selectedMonth).startOf('month');
-    const endOfMonth = dayjs(selectedMonth).endOf('month');
-    
+    const startOfMonth = dayjs(selectedMonth).startOf("month");
+    const endOfMonth = dayjs(selectedMonth).endOf("month");
+
     return events
-      .filter(event => dayjs(event.start).isBetween(startOfMonth, endOfMonth, 'day', '[]'))
+      .filter((event) =>
+        dayjs(event.start).isBetween(startOfMonth, endOfMonth, "day", "[]")
+      )
       .reduce((acc, event) => {
-        const dateKey = dayjs(event.start).format('YYYY-MM-DD');
+        const dateKey = dayjs(event.start).format("YYYY-MM-DD");
         if (!acc[dateKey]) acc[dateKey] = [];
         acc[dateKey].push(event);
         return acc;
@@ -811,10 +811,10 @@ export default function ScheduleXMonthAgenda() {
   }, [events, selectedMonth]);
 
   // Handle Month Change
-  const handleMonthChange = (direction: 'prev' | 'next') => {
+  const handleMonthChange = (direction: "prev" | "next") => {
     setSelectedMonth(
       dayjs(selectedMonth)
-        .add(direction === 'next' ? 1 : -1, 'month')
+        .add(direction === "next" ? 1 : -1, "month")
         .toDate()
     );
   };
@@ -832,7 +832,7 @@ export default function ScheduleXMonthAgenda() {
       {/* Month Navigation */}
       <div className="flex justify-between items-center mb-6">
         <button
-          onClick={() => handleMonthChange('prev')}
+          onClick={() => handleMonthChange("prev")}
           className="px-4 py-2 bg-gray-100 text-gray-700 rounded-md hover:bg-gray-200 transition"
         >
           Previous
@@ -845,12 +845,12 @@ export default function ScheduleXMonthAgenda() {
             className="flex items-center gap-2 px-4 py-2 bg-white border border-gray-300 text-gray-700 rounded-md shadow-sm hover:shadow-md transition"
           >
             <AiOutlineCalendar size={20} />
-            {dayjs(selectedMonth).format('MMMM YYYY')}
+            {dayjs(selectedMonth).format("MMMM YYYY")}
           </button>
 
-          {/* Date Picker Popup */}
+          {/* Centered Date Picker Popup */}
           {isDatePickerOpen && (
-            <div className="absolute z-50 mt-2 bg-white rounded-lg shadow-lg border border-gray-200 p-4 w-80">
+            <div className="absolute z-50 left-1/2 transform -translate-x-1/2 mt-2 bg-white rounded-lg shadow-lg border border-gray-200 p-4 w-[16rem]">
               <DatePicker
                 selected={selectedMonth}
                 onChange={handleDateChange}
@@ -863,7 +863,7 @@ export default function ScheduleXMonthAgenda() {
         </div>
 
         <button
-          onClick={() => handleMonthChange('next')}
+          onClick={() => handleMonthChange("next")}
           className="px-4 py-2 bg-gray-100 text-gray-700 rounded-md hover:bg-gray-200 transition"
         >
           Next
@@ -872,33 +872,41 @@ export default function ScheduleXMonthAgenda() {
 
       {/* Event List */}
       <div className="space-y-8">
-        {Object.entries(groupedEvents).map(([date, events]) => (
-          <div key={date} className="border-b border-gray-200 pb-4">
-            {/* Date Header */}
-            <h3 className="text-lg font-semibold mb-2 text-gray-700">
-              {dayjs(date).format('dddd, MMMM D')}
-            </h3>
+        {Object.entries(groupedEvents).map(([date, events]) => {
+          if (events.length === 0) return null; // Skip empty dates
 
-            {/* Event List */}
-            {events.length > 0 ? (
+          return (
+            <div key={date} className="border-b border-gray-200 pb-4">
+              {/* Date Header */}
+              <h3 className="text-lg font-semibold mb-2 text-gray-700">
+                {dayjs(date).format("dddd, MMMM D")}
+              </h3>
+
+              {/* Event List */}
               <ul>
                 {events.map((event: CalendarEvent) => (
-                  <li 
-                    key={event.id} 
+                  <li
+                    key={event.id}
                     className="bg-blue-100 text-blue-700 rounded-md p-4 mb-2 shadow-sm"
                   >
                     <h4 className="font-medium">{event.title}</h4>
                     <p className="text-sm">
-                      {dayjs(event.start).format('h:mm A')} - {dayjs(event.end).format('h:mm A')}
+                      {dayjs(event.start).format("h:mm A")} -{" "}
+                      {dayjs(event.end).format("h:mm A")}
                     </p>
                   </li>
                 ))}
               </ul>
-            ) : (
-              <p className="text-gray-500 italic">No events</p>
-            )}
-          </div>
-        ))}
+            </div>
+          );
+        })}
+
+        {/* No Events Message */}
+        {Object.keys(groupedEvents).length === 0 && (
+          <p className="text-gray-500 italic text-center">
+            No events this month
+          </p>
+        )}
       </div>
     </div>
   );
