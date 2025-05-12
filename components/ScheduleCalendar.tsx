@@ -717,9 +717,11 @@ import { createViewMonthAgenda } from "@/lib/schedule-x/calendar";
 import "@/lib/schedule-x/theme-shadcn/dist/index.css";
 import dayjs from "dayjs";
 import isBetween from "dayjs/plugin/isBetween";
-import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { AiOutlineCalendar } from "react-icons/ai";
+import { FaRegCaretSquareLeft, FaRegCaretSquareRight } from "react-icons/fa";
+import { FaC, FaCaretLeft, FaCaretRight } from "react-icons/fa6";
+import { ImCancelCircle } from "react-icons/im";
 
 // Extend dayjs with the isBetween plugin
 dayjs.extend(isBetween);
@@ -732,8 +734,14 @@ interface CalendarEvent {
   end: string;
 }
 
+
+interface ScheduleCalendarProps {
+  events: CalendarEvent[];
+}
+
+
 // Main Component
-export default function ScheduleXMonthAgenda() {
+export default function ScheduleXMonthAgenda({events}:ScheduleCalendarProps) {
   const [selectedMonth, setSelectedMonth] = useState<Date>(dayjs().toDate());
   const [isDatePickerOpen, setDatePickerOpen] = useState(false);
 
@@ -746,52 +754,8 @@ export default function ScheduleXMonthAgenda() {
       .split("T")[0],
     views: [createViewMonthAgenda()],
     defaultView: "monthAgenda",
-    events: [
-      {
-        id: "1",
-        title: "Stand-up Meeting",
-        start: "2025-05-11 09:00",
-        end: "2025-05-11 10:00",
-      },
-      {
-        id: "2",
-        title: "Team Sync",
-        start: "2025-05-11 13:00",
-        end: "2025-05-11 14:00",
-      },
-      {
-        id: "3",
-        title: "Product Demo",
-        start: "2025-05-12 11:00",
-        end: "2025-05-12 12:00",
-      },
-      {
-        id: "4",
-        title: "Client Call",
-        start: "2025-05-13 15:00",
-        end: "2025-05-13 16:00",
-      },
-      {
-        id: "5",
-        title: "Sprint Planning",
-        start: "2025-05-14 10:00",
-        end: "2025-05-14 11:30",
-      },
-    ] as CalendarEvent[],
+    events,
   });
-
-  // Extract Events
-  const events = useMemo(() => {
-    if (
-      !calendarApp ||
-      !calendarApp.events ||
-      typeof calendarApp.events.getAll !== "function"
-    ) {
-      return [] as CalendarEvent[];
-    }
-
-    return calendarApp.events.getAll() as CalendarEvent[];
-  }, [calendarApp]);
 
   // Group Events by Date within the Selected Month
   const groupedEvents = useMemo(() => {
@@ -828,45 +792,112 @@ export default function ScheduleXMonthAgenda() {
   };
 
   return (
-    <div className="h-screen p-4 max-w-3xl mx-auto">
+    <div className="h-screen p-4 max-w-3xl mx-auto mb-28">
       {/* Month Navigation */}
       <div className="flex justify-between items-center mb-6">
         <button
           onClick={() => handleMonthChange("prev")}
-          className="px-4 py-2 bg-gray-100 text-gray-700 rounded-md hover:bg-gray-200 transition"
+          className="px-4 py-2 bg-white border border-gray-300 text-xl text-gray-700 rounded-md hover:bg-gray-200 transition"
         >
-          Previous
+          <FaCaretLeft/>
         </button>
-
         {/* Date Picker Trigger */}
         <div className="relative">
           <button
-            onClick={() => setDatePickerOpen(!isDatePickerOpen)}
-            className="flex items-center gap-2 px-4 py-2 bg-white border border-gray-300 text-gray-700 rounded-md shadow-sm hover:shadow-md transition"
+            onClick={() => setDatePickerOpen(true)}
+            className="flex items-center gap-2 px-4 py-2 bg-white border border-gray-300 text-gray-700 rounded-md transition"
           >
             <AiOutlineCalendar size={20} />
             {dayjs(selectedMonth).format("MMMM YYYY")}
           </button>
 
-          {/* Centered Date Picker Popup */}
+          {/* Popup Date Picker */}
           {isDatePickerOpen && (
-            <div className="absolute z-50 left-1/2 transform -translate-x-1/2 mt-2 bg-white rounded-lg shadow-lg border border-gray-200 p-4 w-[16rem]">
-              <DatePicker
-                selected={selectedMonth}
-                onChange={handleDateChange}
-                showMonthYearPicker
-                inline
-                calendarClassName="custom-datepicker"
-              />
+            <div className="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-xl">
+              <div className="bg-white rounded-2xl border border-gray-300 shadow-xl p-6 w-full max-w-md mx-4 relative">
+                {/* Close Button */}
+                <button
+                  onClick={() => setDatePickerOpen(false)}
+                  className="absolute top-6 right-6 text-gray-500 hover:text-gray-700 transition text-2xl"
+                >
+                  <ImCancelCircle />
+                </button>
+
+                {/* Month and Year Picker */}
+                <div className="text-center mt-12">
+                  
+
+                  {/* Month Grid */}
+                  <div className="grid grid-cols-3 gap-4">
+                    {Array.from({ length: 12 }).map((_, i) => {
+                      const month = dayjs().month(i).format("MMM");
+                      const isSelected = dayjs(selectedMonth).month() === i;
+
+                      return (
+                        <button
+                          key={month}
+                          onClick={() =>
+                            setSelectedMonth(
+                              dayjs(selectedMonth).month(i).toDate()
+                            )
+                          }
+                          className={`py-2 px-4 rounded-lg font-semibold transition ${
+                            isSelected
+                              ? "bg-indigo-300 text-white"
+                              : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                          }`}
+                        >
+                          {month}
+                        </button>
+                      );
+                    })}
+                  </div>
+
+                  {/* Year Selector */}
+                  <div className="mt-6 flex items-center justify-center gap-6">
+                    <button
+                      onClick={() =>
+                        setSelectedMonth(
+                          dayjs(selectedMonth).subtract(1, "year").toDate()
+                        )
+                      }
+                      className="text-gray-500 hover:text-gray-700 text-2xl"
+                    >
+                      <FaRegCaretSquareLeft/>
+                    </button>
+                    <span className="text-2xl font-semibold text-gray-700">
+                      {dayjs(selectedMonth).format("YYYY")}
+                    </span>
+                    <button
+                      onClick={() =>
+                        setSelectedMonth(
+                          dayjs(selectedMonth).add(1, "year").toDate()
+                        )
+                      }
+                      className="text-gray-500 hover:text-gray-700 text-2xl"
+                    >
+                      <FaRegCaretSquareRight/>
+                    </button>
+                  </div>
+                </div>
+
+                {/* Done Button */}
+                <button
+                  onClick={() => setDatePickerOpen(false)}
+                  className="w-full bg-indigo-400 text-white rounded-lg py-2 mt-6 hover:bg-blue-700 transition"
+                >
+                  Done
+                </button>
+              </div>
             </div>
           )}
         </div>
 
         <button
           onClick={() => handleMonthChange("next")}
-          className="px-4 py-2 bg-gray-100 text-gray-700 rounded-md hover:bg-gray-200 transition"
+          className="px-4 py-2 bg-white border border-gray-300 text-xl text-gray-700 rounded-md hover:bg-gray-200 transition"
         >
-          Next
+          <FaCaretRight/>
         </button>
       </div>
 
@@ -911,3 +942,5 @@ export default function ScheduleXMonthAgenda() {
     </div>
   );
 }
+
+
