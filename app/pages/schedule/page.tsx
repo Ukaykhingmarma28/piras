@@ -56,7 +56,7 @@ export default function SchedulePage() {
 
   return (
     <main className="pt-[95px] px-1">
-      <h1 className="text-3xl font-bold px-[13px] mb-4">Schedule</h1>
+      <h1 className="text-2xl font-bold px-[13px] mb-4">Schedule</h1>
 
       {/* Add Event Button */}
       <div className="fixed bottom-24 right-8">

@@ -25,11 +25,11 @@ export default function EventModal({ isOpen, onClose }: EventModalProps) {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-xl px-[13px]">
-      <div className="bg-white text-black rounded-2xl w-full max-w-lg p-6 relative shadow-2xl">
+      <div className="bg-white text-black rounded-xl w-full max-w-lg p-6 relative shadow-2xl">
         {/* Header */}
         <div className="flex justify-between items-center mb-4">
           <button onClick={onClose} className="text-blue-400 text-lg">Cancel</button>
-          <h2 className="text-lg font-semibold">Add title</h2>
+          <h2 className="text-lg font-bold">Add title</h2>
           <button className="text-blue-400 text-lg">Save</button>
         </div>
 
@@ -39,7 +39,7 @@ export default function EventModal({ isOpen, onClose }: EventModalProps) {
           placeholder="Add title"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          className="w-full bg-gray-200 text-lg text-black mb-4 px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="w-full bg-gray-200 text-lg text-black mb-4 font-semibold px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
 
         {/* Event Type Tabs */}
@@ -48,7 +48,7 @@ export default function EventModal({ isOpen, onClose }: EventModalProps) {
             <button
               key={type}
               onClick={() => setEventType(type)}
-              className={`flex-1 py-2 rounded-lg ${
+              className={`flex-1 py-2 rounded-md font-semibold ${
                 eventType === type
                   ? "bg-blue-400 text-white border border-gray-300"
                   : "bg-gray-200 text-black border border-gray-300"
@@ -62,7 +62,7 @@ export default function EventModal({ isOpen, onClose }: EventModalProps) {
         {/* All-Day Toggle */}
         <div className="flex items-center gap-4 mb-4">
           <AiOutlineClockCircle size={22} />
-          <label className="flex-1 text-black">All-day</label>
+          <label className="flex-1 text-black font-semibold">All-day</label>
           <input
             type="checkbox"
             checked={allDay}
@@ -73,24 +73,24 @@ export default function EventModal({ isOpen, onClose }: EventModalProps) {
 
         {/* Date and Time Pickers */}
         <div className="flex flex-col gap-4 mb-4">
-          <div className="ms-9">
+          <div className="ms-10">
             <DatePicker
               selected={startDate}
               onChange={(date) => setStartDate(date)}
               showTimeSelect={!allDay}
               dateFormat={allDay ? "yyyy-MM-dd" : "Pp"}
               placeholderText="Start Date and Time"
-              className="w-full bg-gray-200 text-black px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full bg-gray-200 text-black px-4 py-2 rounded-md border border-gray-300"
             />
           </div>
-          <div className="ms-9">
+          <div className="ms-10">
             <DatePicker
               selected={endDate}
               onChange={(date) => setEndDate(date)}
               showTimeSelect={!allDay}
               dateFormat={allDay ? "yyyy-MM-dd" : "Pp"}
               placeholderText="End Date and Time"
-              className="w-full bg-gray-200 text-black px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full bg-gray-200 text-black px-4 py-2 rounded-md border border-gray-300"
             />
           </div>
         </div>
@@ -103,7 +103,7 @@ export default function EventModal({ isOpen, onClose }: EventModalProps) {
             placeholder="Add guests (comma separated)"
             value={guests}
             onChange={(e) => setGuests(e.target.value)}
-            className="flex-1 bg-gray-200 text-black px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="flex-1 bg-gray-200 text-black px-4 py-2 rounded-md border border-gray-300"
           />
         </div>
       </div>

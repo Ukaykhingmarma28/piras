@@ -45,7 +45,7 @@ const HomePage = () => {
   ];
 
   return (
-    <div className="ps-[17px] pe-[17px] pt-[95px]">
+    <div className="px-[17px] pt-[95px]">
       <div className="border-[1px] rounded-2xl h-[140px] bg-yellow-my w-full mb-8"></div>
       <div className="flex justify-between items-center w-full h-[140px] rounded-xl border p-4 mb-8">
         {/* Left Section */}
