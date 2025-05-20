@@ -793,8 +793,10 @@ export default function ScheduleXMonthAgenda({events}:ScheduleCalendarProps) {
 
   return (
     <div className="h-screen p-4 max-w-3xl mx-auto mb-28">
+      <h1 className="text-2xl font-bold  mb-4">Schedule</h1>
       {/* Month Navigation */}
-      <div className="flex justify-between items-center mb-6">
+      <div className="flex justify-center gap-0.5 items-center mb-6">
+        
         <button
           onClick={() => handleMonthChange("prev")}
           className="px-4 py-2 bg-white border border-gray-300 text-xl text-gray-700 rounded-md hover:bg-gray-200 transition"
