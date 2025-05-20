@@ -41,26 +41,22 @@ export default function EventModal({ isOpen, onClose }: EventModalProps) {
 
   return (
     <div className="fixed inset-0 z-[100] bg-black/40 flex items-end justify-center transition">
+
       {/* Drawer */}
       <motion.div
         ref={drawerRef}
         drag="y"
         dragListener={true}
         dragConstraints={{ top: 0, bottom: 0 }}
-        dragElastic={0.2}
+        dragElastic={0.3}
         dragControls={dragControls}
         initial={{ y: "100%" }}
         animate={{ y: 0 }}
         exit={{ y: "100%" }}
         transition={{ type: "spring", stiffness: 400, damping: 35 }}
-        className="relative w-full max-w-md bg-white rounded-t-3xl shadow-2xl pt-3 px-5 pb-8"
+        className="relative w-full bg-white rounded-3xl pt-10 px-5 pb-8 h-[35em]"
         style={{ touchAction: "none" }}
       >
-        {/* Drag Handle */}
-        <div
-          className="mx-auto mb-2 w-12 h-1.5 rounded-full bg-gray-300 cursor-grab active:bg-gray-400"
-          onPointerDown={(e) => dragControls.start(e)}
-        />
 
         {/* Header Row */}
         <div className="flex justify-between items-center mb-4">
@@ -146,7 +142,7 @@ export default function EventModal({ isOpen, onClose }: EventModalProps) {
         )}
 
         {/* Date Picker */}
-        <div className="w-full mb-4 mb-4">
+        <div className="w-full mb-4">
           <label className="block  text-gray-700 font-medium mb-2">Pick a Date</label>
           <DatePicker
             selected={date}
@@ -205,6 +201,7 @@ export default function EventModal({ isOpen, onClose }: EventModalProps) {
           </div>
         </div>
       </motion.div>
+
     </div>
   );
 }
