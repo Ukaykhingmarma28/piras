@@ -13,8 +13,8 @@ export default function More() {
 
       {/* Main Buttons */}
       <div className="flex gap-4 mb-10">
-        <button className="px-6 py-3 bg-white shadow rounded-lg font-semibold border border-gray-300 hover:bg-gray-200">CG Tables</button>
-        <button className="px-6 py-3 bg-white shadow rounded-lg font-semibold border border-gray-300 hover:bg-gray-200">About Your Credit</button>
+        <button className="px-6 py-3 bg-white shadow rounded-lg font-semibold border border-gray-300 hover:bg-gray-200">Attendance</button>
+        <button className="px-6 py-3 bg-white shadow rounded-lg font-semibold border border-gray-300 hover:bg-gray-200">Transcript</button>
       </div>
 
       {/* Tools Section */}
