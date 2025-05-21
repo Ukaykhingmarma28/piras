@@ -21,31 +21,31 @@ export default function SchedulePage() {
   const [events, setEvents] = useState([
     {
       id: "1",
-      title: "Stand-up Meeting",
+      title: "Quiz - CSE203",
       start: "2025-05-11 09:00",
       end: "2025-05-11 10:00",
     },
     {
       id: "2",
-      title: "Team Sync",
+      title: "Music Event",
       start: "2025-05-11 13:00",
       end: "2025-05-11 14:00",
     },
     {
       id: "3",
-      title: "Product Demo",
+      title: "Lab report - PHY102L",
       start: "2025-05-12 11:00",
       end: "2025-05-12 12:00",
     },
     {
       id: "4",
-      title: "Client Call",
+      title: "Pookie sathe Date",
       start: "2025-05-13 15:00",
       end: "2025-05-13 16:00",
     },
     {
       id: "5",
-      title: "Sprint Planning",
+      title: "Exam",
       start: "2025-05-14 10:00",
       end: "2025-05-14 11:30",
     },
