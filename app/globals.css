@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import 'air-datepicker/air-datepicker.css';
 
 body{
     background-color: #FDFAF6;

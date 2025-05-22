@@ -65,7 +65,7 @@ export default function HomePage() {
     });
   };
 
-  // Block desktop users
+  // Desktop View
   if (!isMobile) {
     return (
       <div className="h-screen flex items-center justify-center bg-white text-center px-4">
@@ -76,7 +76,7 @@ export default function HomePage() {
     );
   }
 
-  // Show splash screen if running as PWA
+  // Mobile Browser View
   if (!isPWA && !showSplash) {
     return (
       <main className="h-screen flex flex-col items-center justify-center bg-white px-6 text-center">
@@ -96,7 +96,7 @@ export default function HomePage() {
   }
 
 
-  // Show fallback message for mobile browser
+  // PWA
   return (
     <main className="h-screen w-full flex flex-col items-center justify-between py-12 top-bar-bg">
       <div className="flex-grow flex items-center justify-center">
